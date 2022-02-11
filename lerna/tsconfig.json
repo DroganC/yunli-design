@@ -1,0 +1,26 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@yunli-design/components": [
+        "packages/components/src/index"
+      ],
+      "@yunli-design/components/*": [
+        "packages/components/src/*"
+      ],
+      "@yunli-design/hooks": [
+        "packages/hooks/src/index"
+      ],
+      "@yunli-design/hooks/*": [
+        "packages/hooks/src/*"
+      ],
+    }
+  },
+  "exclude": [
+    "**/node_modules/**",
+    "**/lib/**",
+    "node_modules"
+  ]
+}

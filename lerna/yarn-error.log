@@ -1,0 +1,121 @@
+Arguments: 
+  /usr/local/bin/node /opt/homebrew/Cellar/yarn/1.22.17_2/libexec/bin/yarn.js
+
+PATH: 
+  /opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/chenlong/Library/Android/sdk/emulator:/Users/chenlong/Library/Android/sdk/tools:/Users/chenlong/Library/Android/sdk/tools/bin:/Users/chenlong/Library/Android/sdk/platform-tools:/Users/chenlong/Library/Android/sdk/emulator:/Users/chenlong/Library/Android/sdk/tools:/Users/chenlong/Library/Android/sdk/tools/bin:/Users/chenlong/Library/Android/sdk/platform-tools
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.13.1
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  SyntaxError: /Users/chenlong/Desktop/lerna/lerna/package.json: Unexpected token } in JSON at position 1962
+      at JSON.parse (<anonymous>)
+      at /opt/homebrew/Cellar/yarn/1.22.17_2/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/opt/homebrew/Cellar/yarn/1.22.17_2/libexec/lib/cli.js:310:30)
+      at /opt/homebrew/Cellar/yarn/1.22.17_2/libexec/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "root",
+    "author": "droganc <1308970086@qq.com>",
+    "publishConfig": {
+      "registry": "https://npm.pkg.github.com/"
+    },
+    "keywords": [
+      "yunli"
+    ],
+    "scripts": {
+      "clean": "lerna run clean",
+      "clern:modules": "lerna clean -y && lerna run clean",
+      "dev": "lerna run --parallel --stream dev",
+      "build": "lerna run build --stream",
+      "release": "run-s clean test go_no_go publish changelog",
+      "publish": "npm run build && lerna publish -m \"chore: publish\"",
+      "precommit": "lint-staged",
+      "watch": "lerna run --parallel --stream watch",
+      "precommit:format": "pretty-quick --staged",
+      "prettify:source": "prettier --write 'packages/*/src/**/*.ts*'",
+      "start:docs": "dumi dev",
+      "start:example": "lerna run build --stream && lerna run start",
+      "dev:example": "lerna run dev --stream & lerna run start"
+    },
+    "devDependencies": {
+      "lerna": "^4.0.0",
+      "@babel/cli": "^7.7.5",
+      "@babel/core": "^7.7.5",
+      "@babel/plugin-proposal-class-properties": "^7.7.4",
+      "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
+      "@babel/preset-env": "^7.7.5",
+      "@babel/preset-typescript": "^7.10.1",
+      "@rollup/plugin-babel": "^5.0.4",
+      "@rollup/plugin-commonjs": "^13.0.0",
+      "@rollup/plugin-image": "^2.0.5",
+      "@rollup/plugin-node-resolve": "^8.1.0",
+      "@typescript-eslint/eslint-plugin": "^2.8.0",
+      "@typescript-eslint/parser": "^2.8.0",
+      "dumi": "^1.1.38",
+      "eslint": "^6.7.0",
+      "eslint-config-prettier": "^6.7.0",
+      "eslint-config-react-app": "^5.0.2",
+      "eslint-plugin-import": "^2.22.0",
+      "eslint-plugin-prettier": "^3.1.1",
+      "eslint-plugin-react": "^7.16.0",
+      "eslint-plugin-react-hooks": "^2.3.0",
+      "lint-staged": "^10.2.11",
+      "npm-run-all": "^4.1.5",
+      "prettier": "^2.0.5",
+      "rollup": "^2.18.1",
+      "rollup-plugin-postcss": "^3.1.2",
+      "rollup-plugin-terser": "^6.1.0",
+      "rollup-plugin-typescript2": "^0.27.1",
+      "typescript": "4.x",
+    },
+    "engines": {
+      "node": ">= 10.0"
+    },
+    "lint-staged": {
+      "*.{ts,tsx}": [
+        "eslint --fix",
+        "prettier"
+      ]
+    },
+    "prettier": {
+      "semi": true,
+      "singleQuote": true,
+      "trailingComma": "all",
+      "useTabs": false,
+      "overrides": [
+        {
+          "files": "*.json",
+          "options": {
+            "useTabs": false,
+            "tabWidth": 4
+          }
+        }
+      ]
+    },
+    "husky": {
+      "hooks": {
+        "pre-commit": "lint-staged"
+      }
+    },
+    "workspaces": {
+      "packages": [
+        "packages/*",
+        "examples/*"
+      ]
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
